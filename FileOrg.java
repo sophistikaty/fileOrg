@@ -11,7 +11,12 @@ import java.util.Scanner;
 public class FileOrg {
     public static void main(String[] args) throws IOException {
 
-        Path start = Paths.get("/Users/sophistikaty/Downloads/");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter path to scan");
+
+        // create Path object based on user input
+        Path start = Paths.get(input.nextLine());
+
         Files.walkFileTree(start, new FileVisitor<Path>() {
 //            @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
@@ -62,12 +67,7 @@ public class FileOrg {
             }
         });
 
-//        Scanner input = new Scanner(System.in);
-//
-//        System.out.println("Enter path to scan");
-//
-//        // create Path object based on user input
-//        Path path = Paths.get(input.nextLine());
+
 //        FileVisitor visitor = FileVisitor(path);
 //
 //        if (Files.exists(path)) {
